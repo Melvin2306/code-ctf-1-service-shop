@@ -1,0 +1,11 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "40076:40076"
+    restart: unless-stopped
