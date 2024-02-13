@@ -4,5 +4,4 @@ services:
     build: .
     ports:
       - "40076:40076"
-    command: stdbuf -oL ./shop | nc -lk -p 40076 -q 1
     restart: unless-stopped

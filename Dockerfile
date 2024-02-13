@@ -1,6 +1,9 @@
 # Use an image that includes a C compiler, such as gcc
 FROM gcc:latest
 
+# Install netcat
+RUN apt-get update && apt-get install -y netcat
+
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
