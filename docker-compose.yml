@@ -1,11 +1,8 @@
-# docker-compose.yml
-
-version: '3'
+version: '3.8'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  shop:
+    build: .
     ports:
       - "40076:40076"
+    command: stdbuf -oL ./shop | nc -lk -p 40076 -q 1
     restart: unless-stopped

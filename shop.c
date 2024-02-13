@@ -1,8 +1,5 @@
 #include "shop.h"
 
-i32 wallet = 100;
-int bag[NUM_ITEMS] = {0};
-
 #include <stdio.h>
 #include <stdlib.h>
 
