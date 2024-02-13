@@ -12,8 +12,11 @@ COPY . .
 # Install gcc compiler
 RUN apt-get update && apt-get install -y gcc
 
-# Compile the C program
-RUN gcc -o server server.c shop.c -lpthread
+# Compile shop.c
+RUN gcc -c shop.c -o shop.o
+
+# Compile server.c and link with shop.o
+RUN gcc -o server server.c shop.o -lpthread
 
 # Expose port 40076 to the outside world
 EXPOSE 40076
