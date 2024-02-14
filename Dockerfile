@@ -1,8 +1,8 @@
 # Use an image that includes a C compiler, such as gcc
 FROM gcc:latest
 
-# Install netcat-openbsd
-RUN apt-get update && apt-get install -y netcat-openbsd
+# Install ncat
+RUN apt-get update && apt-get install -y ncat
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -11,7 +11,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Compile your C program
-RUN gcc -o shop shop.c
+RUN gcc -s -Wall -O2 -o shop shop.c
 
 # Command to run the executable
-CMD ["./shop"]
+CMD ["netcat", "-l", "-k", "-p 21434", "-e shop"]
